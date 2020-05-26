@@ -1,0 +1,54 @@
+/*
+ * File: CheckerboardKarel.java
+ * ----------------------------
+ * When you finish writing it, the CheckerboardKarel class should draw
+ * a checkerboard using beepers, as described in Assignment 1.  You
+ * should make sure that your program works for all of the sample
+ * worlds supplied in the starter folder.
+ */
+
+import stanford.karel.*;
+
+public class CheckerboardKarel extends SuperKarel {
+
+	// You fill in this part
+	// Here I systematically followed the Karel path as per the worrk
+	public void run() {
+		putBeeper();
+		for (int i=0; i<4; i++) {
+		moveMent();
+		rightCorner();
+		moveMent();
+		leftCorner();
+		}
+
+	
+
+	
+	turnRight();
+	}
+	private void moveMent() {
+	while (frontIsClear()) {
+		move();
+		if (frontIsClear()) {
+			move();
+			putBeeper();
+		}
+	}
+	}
+	private void rightCorner() {
+
+	turnLeft();
+	move();
+	turnLeft();
+	putBeeper();
+	}
+	
+	private void leftCorner() {
+	
+	turnRight();
+	move();
+	turnRight();
+	putBeeper();
+	}
+}
